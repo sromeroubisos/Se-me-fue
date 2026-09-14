@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+
+# Herramientas locales del editor (no son parte de la app)
+.agents/
+.claude/
+skills-lock.json

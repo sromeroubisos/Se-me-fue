@@ -1,0 +1,73 @@
+{
+  "name": "se-me-fue",
+  "productName": "Se me fue",
+  "version": "1.0.0",
+  "description": "Llevá tus gastos e ingresos del mes y descubrí en qué se te va la plata.",
+  "author": "Se me fue",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "icons": "node scripts/icons.mjs",
+    "web": "node scripts/serve.mjs",
+    "start": "electron .",
+    "dist:win": "npm run icons && electron-builder --win",
+    "dist:mac": "npm run icons && electron-builder --mac",
+    "dist:linux": "npm run icons && electron-builder --linux"
+  },
+  "build": {
+    "appId": "app.semefue.desktop",
+    "productName": "Se me fue",
+    "copyright": "© 2026 Se me fue",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**",
+      "web/**",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Se me fue",
+      "artifactName": "SeMeFue-Setup-${version}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.finance",
+      "icon": "build/icon.png",
+      "artifactName": "SeMeFue-${version}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Finance",
+      "icon": "build/icon.png",
+      "artifactName": "SeMeFue-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.3.0",
+    "electron-builder": "^26.15.3",
+    "sharp": "^0.35.4"
+  }
+}

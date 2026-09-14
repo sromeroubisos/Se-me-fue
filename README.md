@@ -32,6 +32,8 @@ Es lo único imprescindible para lanzar: con un link, cualquiera la instala en s
 3. Te da un link del tipo `https://nombre-al-azar.netlify.app`. En *Site configuration → Change site name* lo podés cambiar, por ejemplo a `semefue.netlify.app`.
 4. Opcional: conectá un dominio propio (por ejemplo `semefue.app`) en *Domain management*.
 
+**Si conectás el repo de GitHub a Netlify:** no hace falta configurar nada. El archivo `netlify.toml` le indica que publique la carpeta `web`. Si en lugar de eso arrastrás la carpeta entera del proyecto a Netlify Drop, vas a ver «Page not found».
+
 **Alternativas:** GitHub Pages, Cloudflare Pages o Vercel sirven igual. Tienen que servir la carpeta `web` con HTTPS, que es obligatorio para instalarla y para que funcione sin conexión.
 
 ### Cómo la instalan los usuarios

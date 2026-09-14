@@ -1,0 +1,14 @@
+# Netlify: la app es la carpeta web/, no la raíz del repo.
+[build]
+  publish = "web"
+  command = "echo 'Sin build: se publica la carpeta web tal cual'"
+
+[build.environment]
+  # Netlify instala las dependencias de package.json; Electron no hace falta para la web.
+  ELECTRON_SKIP_BINARY_DOWNLOAD = "1"
+
+# El service worker no se cachea, así los usuarios reciben las actualizaciones.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
